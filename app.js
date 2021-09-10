@@ -1,9 +1,21 @@
 import "reflect-metadata";
+import { createConnection } from "typeorm";
 const express = require("express");
 const app = express();
 
 const homeRoutes = require('./api/routes/home');
 const userRoutes = require('./api/routes/user');
+
+app.use(async () => {
+    const connection = await createConnection({
+        type: 'postgres',
+        host: 'localhost',
+        port: 5432,
+        username: '',
+        password: '123456789',
+        database: 'diary'
+    });
+});
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
