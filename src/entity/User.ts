@@ -1,18 +1,38 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import BaseEntity from "./baseEntity";
 
-@Entity()
-export class User {
+@Entity("Users")
+export class User extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+    @Column({
+        nullable: false
+    })
+    fullName: string;
 
-    @Column()
-    firstName: string;
-
-    @Column()
-    lastName: string;
-
-    @Column()
-    age: number;
+    @Column({
+        nullable: false
+    })
+    mailAddress: string;
+    
+    @Column({
+        nullable: false
+    })
+    password: string;
+    
+    @Column({
+        nullable: false
+    })
+    passwordSalt: string;
+    
+    @Column({
+        nullable: false
+    })
+    isVerified: boolean;
+    
+    @Column({
+        nullable: true
+    })
+    birthDate: Date;
+    
 
 }

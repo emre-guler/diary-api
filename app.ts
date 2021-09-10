@@ -6,7 +6,7 @@ import "reflect-metadata";
 const app = express();
 // Db connection control
 createConnection().then(connection => {
-    console.log("database connection successful");
+    console.log("Database connection successful!");
     console.log(connection);
 }).catch(error => console.log(error));        
 

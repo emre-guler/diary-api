@@ -8,11 +8,12 @@
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts"
+      "src/entity/User.ts"
    ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "src/migration/*.ts"
    ],
+   "migrationsTableName": "custom_migration",
    "subscribers": [
       "src/subscriber/**/*.ts"
    ],
