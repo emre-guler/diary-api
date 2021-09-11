@@ -9,7 +9,10 @@
    "logging": false,
    "entities": [
       "src/entities/User.ts",
-      "src/entities/UserFriend.ts"
+      "src/entities/Diary.ts",
+      "src/entities/UserFriend.ts",
+      "src/entities/DiaryTaggedFriend.ts",
+      "src/entities/Log.ts"
    ],
    "migrations": [
       "src/migration/*.ts"

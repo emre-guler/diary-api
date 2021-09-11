@@ -16,7 +16,9 @@ export class Diary extends BaseEntity {
     })
     title: string;
 
-    @Column("varchar(max)")
+    @Column({
+        nullable: false
+    })
     content: string;
 
     @Column({
