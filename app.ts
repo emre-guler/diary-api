@@ -1,14 +1,23 @@
+import "reflect-metadata";
+import loggerService from './services/loggerService';
 import * as express from 'express';
 import homeRoute from "./routes/user";
 import  { createConnection } from 'typeorm';
-import "reflect-metadata";
+import { LogLevels } from './enums/LogLevels';
+import { container } from "tsyringe";
 
+// App
 const app = express();
+
+// Dependency Injection
+const logger = container.resolve(loggerService);
+
 // Db connection control
-createConnection().then(connection => {
+createConnection().then(async connection => {
     console.log("Database connection successful!");
-    console.log(connection);
-}).catch(error => console.log(error));        
+}).catch(async (error) => {
+    console.log("ERROR! Database connection unsuccessful!");
+});        
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
